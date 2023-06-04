@@ -6,3 +6,9 @@ def list_menu(request):
 
 def add_menu(request):
     return render(request, 'menus/add_menu.html')
+
+def edit_menu(request):
+    return render(request, 'menus/edit_menu.html')
+
+def show_menu(request):
+    return render(request, 'menus/show_menu.html')

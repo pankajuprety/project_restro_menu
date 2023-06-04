@@ -15,9 +15,20 @@ Including another URLconf
 """
 from django.urls import path
 from django.contrib import admin
-from app_menus import views
+from app_menus import views as am
+from app_customers import views as acus
+from app_accounts import views as aac
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('menus/',views.list_menu, name="menu_list"),
-    path('menus/add/',views.add_menu, name = 'menu-add')
+    path('menus/',am.list_menu, name="menu_list"),
+    path('menus/add/',am.add_menu, name = 'menu-add'),
+    path('menus/edit/',am.edit_menu, name = 'menu-edit'),
+    path('menus/show/',am.show_menu, name = 'menu-show'),
+    path('cus/create/',acus.c_create, name = 'cus-create'),
+    path('cus/edit/',acus.c_edit, name = 'cus-edit'),
+    path('cus/index/',acus.c_index, name = 'cus-index'),
+    path('cus/show/',acus.c_show, name = 'cus-show'),
+    path('acc/login/',aac.ac_login, name = 'ac-login'),
+    path('acc/profile/',aac.ac_profile, name = 'ac-profile'),
+    path('acc/register/',aac.ac_register, name = 'ac-register'),
 ]
