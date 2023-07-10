@@ -1,0 +1,42 @@
+{% extends 'layouts/master.html' %}
+{% load static %}
+{% block title %}
+RESTRO | Dashboard
+{% endblock %}
+
+{% block custom_css%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card p-5 mt-3">
+        <h1>Dashboard</h1>
+        <button id="btn" onclick="changeText()">Click Me!</button>
+        <hr>
+        <div class="d-flex flex-row justify-content-between">
+            <div class="card p-5 w-25">
+                <h5><i class="fa-solid fa-person-military-pointing"></i>Customer</h5>
+                <a href="{% url 'menu-list' %}" class="anchor" >View All</a>
+                <span>{{ menu_total }}</span>
+            </div>
+            <div class="card p-5 w-25">
+                <h5><i class="fa-sharp fa-solid fa-bars"></i>Menus</h5>
+                <a href="{% url 'menu-list' %}" class="anchor">View All</a>
+                <span>{{ menu_total }}</span>
+            </div>
+            <div class="card p-5 w-25">
+                <h5><i class="fa-sharp fa-solid fa-file-user"></i>Accounts</h5>
+                <a href="{% url 'menu-list' %}" class="anchor">View All</a>
+                <span>{{ menu_total }}</span>
+             </div> 
+        </div>
+    </div>
+</div>
+
+{% endblock %} 
+
+{% block custom_js %}
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

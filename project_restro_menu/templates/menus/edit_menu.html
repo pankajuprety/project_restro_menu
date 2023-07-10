@@ -5,5 +5,40 @@ Menu | Edit
 {% endblock %}
 
 {% block content %}
-<h1>This is Menu Edit Page</h1>
-{% endblock%}
+<div class="container">
+    <a href="{% url 'menu-list' %}" class = "btn btn-sm btn-primary mb-3 mt-3"> Back</a>
+    <div class="card p-5 mt-3">
+        
+        <h1>Update Menu details</h1>
+        <hr>
+        <form action="{% url 'menu-edit' data.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="'form-group mb-2">
+                <label for="menu_title">Menu Title</label>
+                <input type="text" name="menu_title" value="{{data.menu_title}}" class="form-control mt-2">                
+            </div>
+
+            <div class="'form-group mb-2">
+                <label for="menu_price">Menu Price</label>
+                <input type="number" name="menu_price" value="{{data.menu_price}}" class="form-control mt-2">                
+            </div>
+            <div class="'form-group mb-2">
+                <label for="menu_title">Menu Ingredient</label>
+                <input type="text" name="menu_ingredient" value="{{data.menu_ingredient}}" class="form-control mt-2">                
+            </div>
+            <div class="'form-group mb-2">
+                <label for="menu_category">Menu Category</label>
+                <select name="menu_category" class="form-control mt-2">
+                   {% for val in categories %}
+                   <option value="{{val.id}}" class="form-control">{{val.category_title}}</option> 
+                   {% endfor %}
+                </select>            
+            </div>
+            <div class="form-group mb-2">
+                <input type="file" name="menu_image" class="form-control mb-2 mt-2">
+            </div>
+            <input type="submit" value="update" class="btn btn-primary btn-sm">
+        </form>
+    </div>
+</div>
+{% endblock %}
